@@ -118,6 +118,7 @@
       .content-margin {
         margin: 0;
       }
+
       .content-subtitle {
         font-style: italic;
         font-weight: 900;
@@ -126,12 +127,6 @@
         margin-top: 100px;
       }
 
-      .content-second {
-        font-size: 12vh;
-        margin: 0px;
-        position: relative;
-        bottom: 100px;
-      }
       .box {
         width: auto;
         margin: 0px auto;
@@ -140,7 +135,8 @@
 
       #card-container {
         position: relative;
-        margin: 10px 10px;
+        margin: 8px 8px;
+        padding: 0px;
         width: 200px;
         height: 200px;
         z-index: 1;
@@ -158,7 +154,7 @@
       #card4 {
         width: 100%;
         height: 100%;
-        margin: 10%;
+        margin: 5%;
         transform-style: preserve-3d;
         transition: all 0.8s linear;
         box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
@@ -206,7 +202,6 @@
       .card-container2 {
         position: relative;
         margin: 0px auto;
-
         width: 65vmin;
         height: 80vmin;
       }
@@ -258,6 +253,51 @@
         opacity: 0.75;
         text-align: center;
       }
+      @media (max-width: 380px) {
+        .content-title {
+          font-size: 9vh;
+        }
+        .content-footer {
+          font-size: 2vh;
+        }
+      }
+      @media (max-width: 480px) {
+        .content-margin {
+          font-size: 9vh;
+        }
+        #card-container {
+          margin: 4px 4px;
+          width: 130px;
+          height: 130px;
+        }
+
+        #card,
+        #card2,
+        #card3,
+        #card4 {
+          margin: 0px;
+        }
+        img {
+          width: 130px;
+          height: 130px;
+        }
+
+        .face {
+          width: 130px;
+          height: 130px;
+        }
+
+        .title {
+          font-size: 13px;
+        }
+        .info {
+          font-size: 11px;
+        }
+
+        .ps {
+          font-size: 9px;
+        }
+      }
     </style>
   </head>
   <body>
@@ -280,13 +320,13 @@
                   <img src="/lucky1.jpg" alt="" />
                 </div>
                 <div class="back face">
-                  <h1>CRAZY</h1>
-                  <p class="artist">
+                  <h1 class="title">CRAZY</h1>
+                  <p class="info">
                     I like my routine very much!
                     <br />
                     But Sometimes I do crazy things...
                   </p>
-                  <p class="date">Very funny !</p>
+                  <p class="ps">Very funny !</p>
                 </div>
               </div>
             </div>
@@ -296,11 +336,11 @@
                   <img src="/lucky2.jpeg" alt="" />
                 </div>
                 <div class="back face">
-                  <h1>LOVELY</h1>
-                  <p class="artist">
+                  <h1 class="title">LOVELY</h1>
+                  <p class="info">
                     I met my mommy when I was 45 days old and you know...
                   </p>
-                  <p class="date">love at first sight!</p>
+                  <p class="ps">love at first sight!</p>
                 </div>
               </div>
             </div>
@@ -312,11 +352,11 @@
                   <img src="/lucky3.jpg" alt="" />
                 </div>
                 <div class="back face">
-                  <h1>FLUFFY</h1>
-                  <p class="artist">
+                  <h1 class="title">FLUFFY</h1>
+                  <p class="info">
                     I was born in Brazil and my birthday is may 1st.
                   </p>
-                  <p class="date">Now I'm living in The USA.</p>
+                  <p class="ps">Now I'm living in The USA.</p>
                 </div>
               </div>
             </div>
@@ -326,11 +366,11 @@
                   <img src="/lucky5.jpg" alt="" />
                 </div>
                 <div class="back face">
-                  <h1>Friendly</h1>
-                  <p class="artist">
+                  <h1 class="title">Friendly</h1>
+                  <p class="info">
                     I like treats and meats! And I like Starbucks Pup Cups!
                   </p>
-                  <p class="date">(Go to the little window!)</p>
+                  <p class="ps">(Go to the little window!)</p>
                 </div>
               </div>
             </div>
