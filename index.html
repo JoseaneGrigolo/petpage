@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Wolf 🐺</title>
+
     <style>
       @import url(http://fonts.googleapis.com/css?family=roboto);
       html {
@@ -113,6 +114,10 @@
         font-size: 12vh;
         line-height: 1.4;
       }
+
+      .content-margin {
+        margin: 0;
+      }
       .content-subtitle {
         font-style: italic;
         font-weight: 900;
@@ -127,173 +132,131 @@
         position: relative;
         bottom: 100px;
       }
-
-      .card-stack {
-        width: 500px;
-        height: 25 0px;
-        position: relative;
-        bottom: 100px;
+      .box {
+        width: auto;
         margin: 0px auto;
+        padding: 0px;
       }
 
-      .card-stack .buttons {
-        position: absolute;
-        background: rgba(71, 70, 70, 0.46);
-        border: 2px solid rgba(255, 255, 255, 0.7);
-        border-radius: 50%;
-        width: 35px;
-        height: 35px;
-        left: 0;
-        top: 55%;
-        color: rgba(255, 255, 255, 0.7);
-        text-align: center;
-        line-height: 35px;
-        font-weight: 900;
-        text-decoration: none;
-        font-size: 22px;
-        z-index: 100;
-        outline: none;
-      }
-
-      .card-stack .prev {
-        left: 15px;
-        right: auto;
-      }
-      .card-stack .next {
-        left: auto;
-        right: 15px;
-      }
-
-      .card-stack .card-list {
-        width: 300px;
-      }
-      .card-stack .card-list__image {
+      #card-container {
+        position: relative;
+        margin: 10px 10px;
+        width: 200px;
         height: 200px;
-        border-radius: 10px;
-        margin-left: 10px;
+        z-index: 1;
+        float: left;
       }
-      .card-stack .card-list__text {
-        color: #fff;
-        font-weight: 300;
-        text-align: left;
-        margin-left: 10px;
-        line-height: 1.2;
+
+      img {
+        width: 200px;
+        height: 200px;
       }
-      .card-stack .card-list li {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: all 100ms ease-in-out;
-        border-radius: 10px;
-        position: absolute;
-        list-style: none;
-        height: 300px;
-        left: 0;
-        right: 0;
-        margin: 0 auto;
-        padding-top: 20px;
-        text-align: center;
-        -webkit-box-shadow: 0 2px 15px 1px rgba(225, 225, 225, 0.5);
-        box-shadow: 0 1px 4px 1px rgba(0, 0, 0, 0.5);
-      }
-      .card-stack .card-list li:nth-child(1) {
-        top: 24px;
-        width: 60%;
-      }
-      .card-stack .card-list li:nth-child(2) {
-        top: 36px;
-        width: 70%;
-      }
-      .card-stack .card-list li:nth-child(3) {
-        top: 48px;
-        width: 80%;
-      }
-      .card-stack .card-list li:nth-child(4) {
-        top: 60px;
-        width: 90%;
-      }
-      .card-stack .card-list li:nth-child(5) {
-        top: 72px;
+
+      #card,
+      #card2,
+      #card3,
+      #card4 {
         width: 100%;
+        height: 100%;
+        margin: 10%;
+        transform-style: preserve-3d;
+        transition: all 0.8s linear;
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
       }
-      .card-stack:hover > .buttons.prev {
+
+      #card:hover {
+        transform: rotateY(180deg);
+        box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.3);
+      }
+
+      #card2:hover {
+        transform: rotateY(-180deg);
+        box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.3);
+      }
+
+      #card3:hover {
+        transform: rotateX(180deg);
+        box-shadow: 5px -5px 15px rgba(0, 0, 0, 0.3);
+      }
+      #card3 .back {
+        transform: rotateX(-180deg);
+      }
+
+      #card4:hover {
+        transform: rotateY(-180deg);
+        box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.3);
+      }
+
+      .face {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+      }
+
+      .back {
         display: block;
-      }
-      .card-stack:hover > .buttons.next {
-        display: block;
-      }
-      .transformThis {
-        animation: scaleDown 500ms;
-      }
-      .transformPrev {
-        animation: scaleUp 100ms;
-      }
-      @keyframes scaleUp {
-        0% {
-          transform: scale(1.2) translateY(50px);
-          opacity: 0;
-        }
-        20% {
-          transform: scale(1.15) translateY(40px);
-          opacity: 0.1;
-        }
-        40% {
-          transform: scale(1.1) translateY(30px);
-          opacity: 0.2;
-        }
-        60% {
-          transform: scale(1.05) translateY(20px);
-          opacity: 0.4;
-        }
-        80% {
-          transform: scale(1.01) translateY(10px);
-          opacity: 0.8;
-        }
-        100% {
-          transform: scale(1) translateY(0);
-          opacity: 1;
-        }
-      }
-      @keyframes scaleDown {
-        0% {
-          transform: scale(1) translateY(0);
-          opacity: 1;
-        }
-        20% {
-          transform: scale(1.01) translateY(20px);
-          opacity: 0.8;
-        }
-        40% {
-          transform: scale(1.05) translateY(40px);
-          opacity: 0.4;
-        }
-        60% {
-          transform: scale(1.1) translateY(60px);
-          opacity: 0.2;
-        }
-        80% {
-          transform: scale(1.15) translateY(80px);
-          opacity: 0.1;
-        }
-        100% {
-          transform: scale(1.2) translateY(100px);
-          opacity: 0;
-        }
-      }
-      @keyframes scaleCard {
-        0% {
-          top: 5px;
-        }
-        100% {
-          top: 24px;
-        }
-      }
-      .img-insta {
-        height: 60px;
-        width: 60px;
-      }
-      .img-insta:hover {
+        transform: rotateY(180deg);
+        box-sizing: border-box;
+        padding: 10px;
+        text-align: center;
         opacity: 0.7;
+        background: #0e567c;
+      }
+      .card-container2 {
+        position: relative;
+        margin: 0px auto;
+
+        width: 65vmin;
+        height: 80vmin;
+      }
+
+      .card2 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #fafafa;
+        border-radius: 2px;
+        box-shadow: 2px 2px 5px rgba(17, 17, 17, 0.35);
+        transition: transform 0.35s ease-out;
+        transform: translate(var(--x), var(--y)) scale(0.35)
+          rotate(var(--angle));
+        will-change: transform;
+      }
+      .card2:hover {
+        transform: scale(1) rotate(0deg);
+        z-index: 1;
+      }
+      .card2:hover:before {
+        opacity: 1;
+      }
+
+      .card2:before {
+        content: "";
+        display: block;
+        width: 90%;
+        height: 80%;
+        margin: 5%;
+        background: var(--image) center center no-repeat;
+        background-size: cover;
+        box-shadow: inset 0 0 5px rgba(34, 34, 34, 0.35);
+        border-radius: 2px;
+        filter: sepia(0.2) brightness(0.9) contrast(1.2);
+        transition: opacity 0.35s ease-out;
+        opacity: 0.5;
+        will-change: opacity;
+      }
+
+      .card2:after {
+        display: block;
+        content: var(--caption);
+        font-weight: 500;
+        color: #555;
+        font-size: 3vmin;
+        opacity: 0.75;
+        text-align: center;
       }
     </style>
   </head>
@@ -302,83 +265,126 @@
       <section class="background">
         <div class="content-wrapper">
           <p class="content-subtitle">— My Baby, My Wolf</p>
+
           <p class="content-title">Lucky</p>
           <p class="content-footer">Scroll down the page with mouse wheel</p>
         </div>
       </section>
       <section class="background">
         <div class="content-wrapper">
-          <p class="content-second">Things about me</p>
-          <div class="card-stack">
-            <a class="buttons prev" href="#"> <</a>
-            <ul class="card-list">
-              <li class="card" style="background: rgb(95, 141, 125)">
-                <img src="/lucky5.jpg" alt="Sun" class="card-list__image" />
-
-                <h3 class="card-list__text">
-                  I like mommy's food, She does delicious treats and meats!
-                  <br />
-                  I also like Starbucks, they do amazing Pup Cups! (Go to the
-                  little window!)
-                </h3>
-              </li>
-              <li class="card" style="background: rgb(61, 111, 139)">
-                <img src="/lucky2.jpeg" alt="Sun" class="card-list__image" />
-
-                <h3 class="card-list__text">
-                  I met my mommy when I was 45 days old and you know... love at
-                  first sight!
-                </h3>
-              </li>
-              <li class="card" style="background: rgb(172, 130, 139)">
-                <img src="/lucky1.jpg" alt="Sun" class="card-list__image" />
-
-                <h3 class="card-list__text">
-                  I have my routine and I like it very much!
-                  <br />
-                  Sometimes I do crazy things... Very funny !
-                </h3>
-              </li>
-              <li class="card" style="background: rgb(61, 111, 139)">
-                <img src="/lucky3.jpg" alt="Sun" class="card-list__image" />
-
-                <h3 class="card-list__text">
-                  I was born in Brazil and my date of birthday is may 1st.
-                  <br />
-                  Now I'm living in USA. <br />
-                </h3>
-              </li>
-
-              <li class="card" style="background: rgb(172, 130, 139)">
-                <img src="/lucky4.jpg" alt="Sun" class="card-list__image" />
-
-                <h3 class="card-list__text">
-                  My name is Lucky, sometimes fluffy. <br />
-                  But... <br />
-                  I love when mommy calls me "my baby"!
-                </h3>
-              </li>
-            </ul>
-            <a class="buttons next" href="#">></a>
+          <p class="content-title content-margin">Things about me</p>
+          <div class="box">
+            <div id="card-container">
+              <div id="card">
+                <div class="front face">
+                  <img src="/lucky1.jpg" alt="" />
+                </div>
+                <div class="back face">
+                  <h1>CRAZY</h1>
+                  <p class="artist">
+                    I like my routine very much!
+                    <br />
+                    But Sometimes I do crazy things...
+                  </p>
+                  <p class="date">Very funny !</p>
+                </div>
+              </div>
+            </div>
+            <div id="card-container">
+              <div id="card2">
+                <div class="front face">
+                  <img src="/lucky2.jpeg" alt="" />
+                </div>
+                <div class="back face">
+                  <h1>LOVELY</h1>
+                  <p class="artist">
+                    I met my mommy when I was 45 days old and you know...
+                  </p>
+                  <p class="date">love at first sight!</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="box">
+            <div id="card-container">
+              <div id="card3">
+                <div class="front face">
+                  <img src="/lucky3.jpg" alt="" />
+                </div>
+                <div class="back face">
+                  <h1>FLUFFY</h1>
+                  <p class="artist">
+                    I was born in Brazil and my birthday is may 1st.
+                  </p>
+                  <p class="date">Now I'm living in The USA.</p>
+                </div>
+              </div>
+            </div>
+            <div id="card-container">
+              <div id="card4">
+                <div class="front face">
+                  <img src="/lucky5.jpg" alt="" />
+                </div>
+                <div class="back face">
+                  <h1>Friendly</h1>
+                  <p class="artist">
+                    I like treats and meats! And I like Starbucks Pup Cups!
+                  </p>
+                  <p class="date">(Go to the little window!)</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
       <section class="background">
         <div class="content-wrapper">
-          <p class="content-title">Let's play!</p>
-          <p class="content-subtitle">
-            <a
-              href="https://www.instagram.com/joseanegrigolo/"
-              rel="noopener"
-              title="Instagram Link"
-              target="_blank"
-              ><img
-                class="img-insta"
-                src="/instagram.png"
-                alt="Instagram image"
-              />
-            </a>
-          </p>
+          <p class="content-title content-margin">Let's play!</p>
+          <div class="card-container2">
+            <div
+              class="card2"
+              style="
+                --image: url('/lucky1.jpg');
+                --angle: -5deg;
+                --x: 5%;
+                --y: 15%;
+                --caption: 'My house - 2022';
+              "
+            ></div>
+
+            <div
+              class="card2"
+              style="
+                --image: url('/instagram.png');
+                --angle: -1deg;
+                --x: -10%;
+                --y: -20%;
+                --caption: 'Check my pictures';
+              "
+            ></div>
+
+            <div
+              class="card2"
+              style="
+                --image: url('/lucky2.jpeg');
+                --angle: -4deg;
+                --x: -20%;
+                --y: 5%;
+                --caption: 'Pool party - 2022';
+              "
+            ></div>
+
+            <div
+              class="card2"
+              style="
+                --image: url('/lucky3.jpg');
+                --angle: 7deg;
+                --x: 10%;
+                --y: -7%;
+                --caption: 'Grooming day - 2021';
+              "
+            ></div>
+          </div>
         </div>
       </section>
     </div>
@@ -455,49 +461,6 @@
           .find(".content-wrapper")
           .css("transform", "translateY(15vh)");
       }
-    </script>
-    <script type="text/javascript">
-      var $card = $(".card");
-      var lastCard = $(".card-list .card").length - 1;
-
-      $(".next").click(function () {
-        var prependList = function () {
-          if ($(".card").hasClass("activeNow")) {
-            var $slicedCard = $(".card")
-              .slice(lastCard)
-              .removeClass("transformThis activeNow");
-            $("ul").prepend($slicedCard);
-          }
-        };
-        $("li")
-          .last()
-          .removeClass("transformPrev")
-          .addClass("transformThis")
-          .prev()
-          .addClass("activeNow");
-        setTimeout(function () {
-          prependList();
-        }, 250);
-      });
-
-      $(".prev").click(function () {
-        var appendToList = function () {
-          if ($(".card").hasClass("activeNow")) {
-            var $slicedCard = $(".card").slice(0, 1).addClass("transformPrev");
-            $(".card-list").append($slicedCard);
-          }
-        };
-
-        $("li")
-          .removeClass("transformPrev")
-          .last()
-          .addClass("activeNow")
-          .prevAll()
-          .removeClass("activeNow");
-        setTimeout(function () {
-          appendToList();
-        }, 250);
-      });
     </script>
   </body>
 </html>
