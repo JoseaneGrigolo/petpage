@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Wolf 🐺</title>
+    <style>
+      @import url(http://fonts.googleapis.com/css?family=roboto);
+      html {
+        margin: 0;
+        padding: 0;
+        border: 0;
+      }
+
+      ol,
+      ul {
+        list-style: none;
+      }
+
+      html,
+      body {
+        overflow: hidden;
+      }
+
+      .background {
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        overflow: hidden;
+        will-change: transform;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        height: 130vh;
+        position: fixed;
+        width: 100%;
+        -webkit-transform: translateY(20vh);
+        -ms-transform: translateY(20vh);
+        transform: translateY(20vh);
+        -webkit-transition: all 1.4s cubic-bezier(0.22, 0.44, 0, 1);
+        transition: all 1.4s cubic-bezier(0.22, 0.44, 0, 1);
+      }
+
+      .background:before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.3);
+      }
+
+      .background:first-child {
+        background-image: url(/lucky2.jpeg);
+        -webkit-transform: translateY(-10vh);
+        -ms-transform: translateY(-10vh);
+        transform: translateY(-10vh);
+      }
+
+      .background:first-child .content-wrapper {
+        -webkit-transform: translateY(10vh);
+        -ms-transform: translateY(10vh);
+        transform: translateY(10vh);
+      }
+
+      .background:nth-child(2) {
+        background-image: url(/lucky4.jpg);
+      }
+
+      .background:nth-child(3) {
+        background-image: url(/lucky6.jpeg);
+      }
+
+      .background:nth-child(1) {
+        z-index: 2;
+      }
+
+      .background:nth-child(2) {
+        z-index: 1;
+      }
+
+      .content-wrapper {
+        height: 100vh;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        text-align: center;
+        -webkit-flex-flow: column nowrap;
+        -ms-flex-flow: column nowrap;
+        flex-flow: column nowrap;
+        color: #fff;
+        font-family: Montserrat;
+        text-transform: uppercase;
+        -webkit-transform: translateY(40vh);
+        -ms-transform: translateY(40vh);
+        transform: translateY(40vh);
+        will-change: transform;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        -webkit-transition: all 1.9s cubic-bezier(0.22, 0.44, 0, 1);
+        transition: all 1.9s cubic-bezier(0.22, 0.44, 0, 1);
+      }
+
+      .content-title {
+        font-size: 12vh;
+        line-height: 1.4;
+      }
+      .content-subtitle {
+        font-style: italic;
+        font-weight: 900;
+      }
+      .content-footer {
+        margin-top: 100px;
+      }
+
+      .content-second {
+        font-size: 12vh;
+        margin: 0px;
+        position: relative;
+        bottom: 100px;
+      }
+
+      .card-stack {
+        width: 500px;
+        height: 25 0px;
+        position: relative;
+        bottom: 100px;
+        margin: 0px auto;
+      }
+
+      .card-stack .buttons {
+        position: absolute;
+        background: rgba(71, 70, 70, 0.46);
+        border: 2px solid rgba(255, 255, 255, 0.7);
+        border-radius: 50%;
+        width: 35px;
+        height: 35px;
+        left: 0;
+        top: 55%;
+        color: rgba(255, 255, 255, 0.7);
+        text-align: center;
+        line-height: 35px;
+        font-weight: 900;
+        text-decoration: none;
+        font-size: 22px;
+        z-index: 100;
+        outline: none;
+      }
+
+      .card-stack .prev {
+        left: 15px;
+        right: auto;
+      }
+      .card-stack .next {
+        left: auto;
+        right: 15px;
+      }
+
+      .card-stack .card-list {
+        width: 300px;
+      }
+      .card-stack .card-list__image {
+        height: 200px;
+        border-radius: 10px;
+        margin-left: 10px;
+      }
+      .card-stack .card-list__text {
+        color: #fff;
+        font-weight: 300;
+        text-align: left;
+        margin-left: 10px;
+        line-height: 1.2;
+      }
+      .card-stack .card-list li {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 100ms ease-in-out;
+        border-radius: 10px;
+        position: absolute;
+        list-style: none;
+        height: 300px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        padding-top: 20px;
+        text-align: center;
+        -webkit-box-shadow: 0 2px 15px 1px rgba(225, 225, 225, 0.5);
+        box-shadow: 0 1px 4px 1px rgba(0, 0, 0, 0.5);
+      }
+      .card-stack .card-list li:nth-child(1) {
+        top: 24px;
+        width: 60%;
+      }
+      .card-stack .card-list li:nth-child(2) {
+        top: 36px;
+        width: 70%;
+      }
+      .card-stack .card-list li:nth-child(3) {
+        top: 48px;
+        width: 80%;
+      }
+      .card-stack .card-list li:nth-child(4) {
+        top: 60px;
+        width: 90%;
+      }
+      .card-stack .card-list li:nth-child(5) {
+        top: 72px;
+        width: 100%;
+      }
+      .card-stack:hover > .buttons.prev {
+        display: block;
+      }
+      .card-stack:hover > .buttons.next {
+        display: block;
+      }
+      .transformThis {
+        animation: scaleDown 500ms;
+      }
+      .transformPrev {
+        animation: scaleUp 100ms;
+      }
+      @keyframes scaleUp {
+        0% {
+          transform: scale(1.2) translateY(50px);
+          opacity: 0;
+        }
+        20% {
+          transform: scale(1.15) translateY(40px);
+          opacity: 0.1;
+        }
+        40% {
+          transform: scale(1.1) translateY(30px);
+          opacity: 0.2;
+        }
+        60% {
+          transform: scale(1.05) translateY(20px);
+          opacity: 0.4;
+        }
+        80% {
+          transform: scale(1.01) translateY(10px);
+          opacity: 0.8;
+        }
+        100% {
+          transform: scale(1) translateY(0);
+          opacity: 1;
+        }
+      }
+      @keyframes scaleDown {
+        0% {
+          transform: scale(1) translateY(0);
+          opacity: 1;
+        }
+        20% {
+          transform: scale(1.01) translateY(20px);
+          opacity: 0.8;
+        }
+        40% {
+          transform: scale(1.05) translateY(40px);
+          opacity: 0.4;
+        }
+        60% {
+          transform: scale(1.1) translateY(60px);
+          opacity: 0.2;
+        }
+        80% {
+          transform: scale(1.15) translateY(80px);
+          opacity: 0.1;
+        }
+        100% {
+          transform: scale(1.2) translateY(100px);
+          opacity: 0;
+        }
+      }
+      @keyframes scaleCard {
+        0% {
+          top: 5px;
+        }
+        100% {
+          top: 24px;
+        }
+      }
+      .img-insta {
+        height: 60px;
+        width: 60px;
+      }
+      .img-insta:hover {
+        opacity: 0.7;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <section class="background">
+        <div class="content-wrapper">
+          <p class="content-subtitle">— My Baby, My Wolf</p>
+          <p class="content-title">Lucky</p>
+          <p class="content-footer">Scroll down the page with mouse wheel</p>
+        </div>
+      </section>
+      <section class="background">
+        <div class="content-wrapper">
+          <p class="content-second">Things about me</p>
+          <div class="card-stack">
+            <a class="buttons prev" href="#"> <</a>
+            <ul class="card-list">
+              <li class="card" style="background: rgb(95, 141, 125)">
+                <img src="/lucky5.jpg" alt="Sun" class="card-list__image" />
+
+                <h3 class="card-list__text">
+                  I like mommy's food, She does delicious treats and meats!
+                  <br />
+                  I also like Starbucks, they do amazing Pup Cups! (Go to the
+                  little window!)
+                </h3>
+              </li>
+              <li class="card" style="background: rgb(61, 111, 139)">
+                <img src="/lucky2.jpeg" alt="Sun" class="card-list__image" />
+
+                <h3 class="card-list__text">
+                  I met my mommy when I was 45 days old and you know... love at
+                  first sight!
+                </h3>
+              </li>
+              <li class="card" style="background: rgb(172, 130, 139)">
+                <img src="/lucky1.jpg" alt="Sun" class="card-list__image" />
+
+                <h3 class="card-list__text">
+                  I have my routine and I like it very much!
+                  <br />
+                  Sometimes I do crazy things... Very funny !
+                </h3>
+              </li>
+              <li class="card" style="background: rgb(61, 111, 139)">
+                <img src="/lucky3.jpg" alt="Sun" class="card-list__image" />
+
+                <h3 class="card-list__text">
+                  I was born in Brazil and my date of birthday is may 1st.
+                  <br />
+                  Now I'm living in USA. <br />
+                </h3>
+              </li>
+
+              <li class="card" style="background: rgb(172, 130, 139)">
+                <img src="/lucky4.jpg" alt="Sun" class="card-list__image" />
+
+                <h3 class="card-list__text">
+                  My name is Lucky, sometimes fluffy. <br />
+                  But... <br />
+                  I love when mommy calls me "my baby"!
+                </h3>
+              </li>
+            </ul>
+            <a class="buttons next" href="#">></a>
+          </div>
+        </div>
+      </section>
+      <section class="background">
+        <div class="content-wrapper">
+          <p class="content-title">Let's play!</p>
+          <p class="content-subtitle">
+            <a
+              href="https://www.instagram.com/joseanegrigolo/"
+              rel="noopener"
+              title="Instagram Link"
+              target="_blank"
+              ><img
+                class="img-insta"
+                src="/instagram.png"
+                alt="Instagram image"
+              />
+            </a>
+          </p>
+        </div>
+      </section>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js"></script>
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script>
+      var ticking = false;
+      var isFirefox = /Firefox/i.test(navigator.userAgent);
+      var isIe =
+        /MSIE/i.test(navigator.userAgent) ||
+        /Trident.*rv\:11\./i.test(navigator.userAgent);
+      var scrollSensitivitySetting = 30;
+      var slideDurationSetting = 800;
+      var currentSlideNumber = 0;
+      var totalSlideNumber = $(".background").length;
+      function parallaxScroll(evt) {
+        if (isFirefox) {
+          delta = evt.detail * -120;
+        } else if (isIe) {
+          delta = -evt.deltaY;
+        } else {
+          delta = evt.wheelDelta;
+        }
+        if (ticking != true) {
+          if (delta <= -scrollSensitivitySetting) {
+            ticking = true;
+            if (currentSlideNumber !== totalSlideNumber - 1) {
+              currentSlideNumber++;
+              nextItem();
+            }
+            slideDurationTimeout(slideDurationSetting);
+          }
+          if (delta >= scrollSensitivitySetting) {
+            ticking = true;
+            if (currentSlideNumber !== 0) {
+              currentSlideNumber--;
+            }
+            previousItem();
+            slideDurationTimeout(slideDurationSetting);
+          }
+        }
+      }
+      function slideDurationTimeout(slideDuration) {
+        setTimeout(function () {
+          ticking = false;
+        }, slideDuration);
+      }
+      var mousewheelEvent = isFirefox ? "DOMMouseScroll" : "wheel";
+      window.addEventListener(
+        mousewheelEvent,
+        _.throttle(parallaxScroll, 60),
+        false
+      );
+      function nextItem() {
+        var $previousSlide = $(".background").eq(currentSlideNumber - 1);
+        $previousSlide
+          .css("transform", "translate3d(0,-130vh,0)")
+          .find(".content-wrapper")
+          .css("transform", "translateY(40vh)");
+        currentSlideTransition();
+      }
+      function previousItem() {
+        var $previousSlide = $(".background").eq(currentSlideNumber + 1);
+        $previousSlide
+          .css("transform", "translate3d(0,30vh,0)")
+          .find(".content-wrapper")
+          .css("transform", "translateY(30vh)");
+        currentSlideTransition();
+      }
+      function currentSlideTransition() {
+        var $currentSlide = $(".background").eq(currentSlideNumber);
+        $currentSlide
+          .css("transform", "translate3d(0,-15vh,0)")
+          .find(".content-wrapper")
+          .css("transform", "translateY(15vh)");
+      }
+    </script>
+    <script type="text/javascript">
+      var $card = $(".card");
+      var lastCard = $(".card-list .card").length - 1;
+
+      $(".next").click(function () {
+        var prependList = function () {
+          if ($(".card").hasClass("activeNow")) {
+            var $slicedCard = $(".card")
+              .slice(lastCard)
+              .removeClass("transformThis activeNow");
+            $("ul").prepend($slicedCard);
+          }
+        };
+        $("li")
+          .last()
+          .removeClass("transformPrev")
+          .addClass("transformThis")
+          .prev()
+          .addClass("activeNow");
+        setTimeout(function () {
+          prependList();
+        }, 250);
+      });
+
+      $(".prev").click(function () {
+        var appendToList = function () {
+          if ($(".card").hasClass("activeNow")) {
+            var $slicedCard = $(".card").slice(0, 1).addClass("transformPrev");
+            $(".card-list").append($slicedCard);
+          }
+        };
+
+        $("li")
+          .removeClass("transformPrev")
+          .last()
+          .addClass("activeNow")
+          .prevAll()
+          .removeClass("activeNow");
+        setTimeout(function () {
+          appendToList();
+        }, 250);
+      });
+    </script>
+  </body>
+</html>
